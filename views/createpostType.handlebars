@@ -1,0 +1,93 @@
+{{!--
+<!doctype html>
+<html>
+
+<head>
+    <title>Post Baby Used Item</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body> --}}
+    {{!-- <article class="page-container"> --}}
+
+        <header class="global-header wide">
+
+            <nav class="navbar navbar-light bg-light">
+                {{!-- <a class="navbar-brand" href="#">
+                    <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <p>seattle<span class="breadcrumb-arrow">&gt;</span></p>
+                </a> --}}
+                <ul class="nav justify-content-left">
+                    <li class="nav-item">
+                        <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    </li>
+                    <li class="nav-item">
+                        <p class="vertical-center">seattle<span class="breadcrumb-arrow">&gt;</span></p>
+                    </li>
+                    <li>
+                        <p class="vertical-center" id="locationHeader"> <span class="breadcrumb-arrow">&gt;</span></p>
+                    </li>
+                </ul>
+                <ul class="nav justify-content-end">
+                    {{#if condition.isNotLogin}}
+                    <li class="nav-item">
+                        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <p>[ logged in as <strong><a class="username" href="/postItem">{{user.username}}</a></strong>]</p>
+                    </li>
+                    <li class="nav-item">
+                        <p>[ <a href="/logout">log out</a>]</p>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
+
+        </header>
+        <div class="container" id="indexContainer">
+            <div class="col-sm-12 col-sm-offset-3">
+                <section class="body">
+
+
+                    <form class="picker" action="createpostInfo">
+                        {{!-- action="api/createpostType" method="post" --}}
+                        <p class="formnote"><b>what type of posting is this:</b>(see <a href="https://www.craigslist.org/about/prohibited">prohibited</a>
+                            list before posting.)</p>
+                        <ul class="selection-list">
+                            <li><label><input type="radio" name="typeNam" value="for sale by owner">for sale by owner</label></li>
+                            <li><label><input type="radio" name="typeNam" value="wanted by owner">wanted by owner</label></li>
+                        </ul>
+                        <p class="formnote">
+                            <b>please choose a category:</b>
+                            (see <a href="https://www.craigslist.org/about/prohibited">prohibited</a> list and <a href="https://www.craigslist.org/about/recalled_items">recall
+                                information</a> before posting.)
+                        </p>
+                        <ul class="selection-list">
+                            <li><label><input type="radio" name="categoryNam" value="furniture">furniture</label></li>
+                            <li><label><input type="radio" name="categoryNam" value="toys">toys</label></li>
+                            <li><label><input type="radio" name="categoryNam" value="travel set">travel set</label></li>
+                            <li><label><input type="radio" name="categoryNam" value="clothes">clothes</label></li>
+                            <li><label><input type="radio" name="categoryNam" value="nursing goods">nursing goods</label></li>
+                        </ul>
+                        <button class="typeBtn" type="submit" name="go" value="Continue">continue</button>
+                    </form>
+
+
+                </section>
+            </div>
+        </div>
+
+        {{!--
+    </article> --}}
+    <script src="/js/createpost.js"></script>
+    <script src="/js/createpostType.js"></script>
+    {{!-- </body>
+
+
+</html> --}}

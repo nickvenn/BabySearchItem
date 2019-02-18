@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <title>Simple Map</title>
+      <meta name="viewport" content="initial-scale=1.0">
+      <meta charset="utf-8">
+      <style>
+            /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+            #dirMap {
+                  height: 100%;
+            }
+
+            /* Optional: Makes the sample page fill the window. */
+            html,
+            body {
+                  height: 100%;
+                  margin: 0;
+                  padding: 0;
+            }
+      </style>
+</head>
+
+<body>
+      <div>
+            <!-- Image and text -->
+            <nav class="navbar navbar-light bg-light">
+                  <a class="navbar-brand" href="/">
+                        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30"
+                              class="d-inline-block align-top" alt="">
+                        Home
+                  </a>
+            </nav>
+      </div>
+      <div id="dirMap">
+            <p>originPlcoriginPlc</p>
+
+      </div>
+      <script>
+            var originPlc = $("#originPlc").val();
+            var destinationPlc = $("#destinationPlc").val();
+            var lat = parseFloat($("#lat").val());
+            var lng = parseFloat($("#lng").val());
+            function initDirMap() {
+
+                  var map = new google.maps.Map(document.getElementById('dirMap'), {
+                        center: { lat: 47.619905, lng: -122.320868 },//lat: 47.619905, lng: -122.320868
+                        zoom: 6,
+                        mapTypeId: 'roadmap',
+                        mapTypeControlOptions: {
+                              style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR, position: google.maps.ControlPosition.BOTTOM_CENTER
+                        },
+                        scaleControl: true
+                  });
+                  // Instantiate a directions service.
+                  var directionsService = new google.maps.DirectionsService();
+                  // Create a renderer for directions and bind it to the map.
+                  var directionsDisplay = new google.maps.DirectionsRenderer({ map: map });
+                  var request = {
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        origin: originPlc,
+                        destination: destinationPlc
+                  };
+                  directionsService.route(request, function (response, status) {
+                        if (status === 'OK') {
+                              directionsDisplay.setDirections(response); Î
+                        }
+                  });
+            }
+
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <script src="/js/createpostType.js"></script>
+      <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfZNt5cfqlgt0S6_8GL2JCUj7kAUCYXlw&callback=initDirMap">
+            </script>
+
+</body>
+
+</html>

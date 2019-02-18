@@ -1,0 +1,39 @@
+<div class="container">
+      <div class="row">
+
+
+            <div class="col-8">
+                  <h1>File Upload</h1>
+
+
+                  <form action="/upload" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                              <div class="col">
+                                    <input name="myImage" type="file">
+                              </div>
+                              <div class="col">
+                                    <button type="submit" class="btn btn-info mb-2">Upload</button>
+                              </div>
+                              {{!-- <div class="col">
+                                    <button id="submitBtn" class="btn btn-success mb-2">Submit</button>
+                              </div> --}}
+                        </div>
+                  </form>
+                  {{#if msg}}
+                  <p><strong>{{msg}}</strong></p>
+                  {{/if}}
+                  {{#if filePath}}
+                  <br>
+                  <img id="uploadImg" src={{filePath}} class="responsive-img">
+                  {{/if}}
+            </div>
+            <div class="col-4">
+                  <button id="submitBtn" class="btn btn-success mb-2">Submit</button>
+            </div>
+      </div>
+      {{!-- <button id="submitBtn">Submit</button> --}}
+
+
+</div>
+<script src="/js/createpost.js"></script>
+<script src="/js/createpostType.js"></script>

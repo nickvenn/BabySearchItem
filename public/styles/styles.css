@@ -1,0 +1,69 @@
+#map {
+  margin-left: -15px;
+  height: 400px;
+  position: absolute;
+  width: 100%;
+  border: 1px solid green;
+}
+#dirMap{
+  height: 100%;
+}
+/* #mapContainer{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+} */
+/* #map{
+    position: absolute;
+    width: 80%;
+} */
+#indexContainer{
+  padding-top: 2%;
+}
+.list-group-item {
+  line-height: 2.5;
+}
+.vertical-center{
+  /* font-size: 22px;
+  padding-top: 10%;
+  padding-left: 5%; */
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#locationHeader{
+  padding-left: 6%;
+}
+#typeHeader{
+  padding-left: 18%;
+}
+#categoryHeader{
+  padding-left: 30%;
+}
+.postInfoBtn{
+  margin-top: 10px;
+  margin-left: 8px;
+  padding: 10px;
+}
+.businessImg{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 120px;
+}
+#submitBtn{
+  margin-top: 50px;
+}
+.postItemImg{
+  width: 200px;
+}
+#alertRow{
+  color: red;
+  font: 20px;
+}
+#typeOfPostLi, #typeLi{
+  color:rgb(87, 87, 145);
+  font-size: 22px;
+}

@@ -1,0 +1,174 @@
+<header class="global-header wide">
+
+      <nav class="navbar navbar-light bg-light">
+            <ul class="nav justify-content-left">
+                  <li class="nav-item">
+                        <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                  </li>
+                  <li class="nav-item">
+                        <p class="vertical-center">seattle<span class="breadcrumb-arrow">&gt;</span></p>
+                  </li>
+                  <li>
+                        <p class="vertical-center" id="locationHeader"> <span class="breadcrumb-arrow">&gt;</span></p>
+                  </li>
+                  <li>
+                        <p class="vertical-center" id="typeHeader"> <span class="breadcrumb-arrow">&gt;</span></p>
+                  </li>
+                  <li>
+                        <p class="vertical-center" id="categoryHeader"> <span class="breadcrumb-arrow">&gt;</span></p>
+                  </li>
+            </ul>
+            <ul class="nav justify-content-end">
+                  {{#if condition.isNotLogin}}
+                  <li class="nav-item">
+                        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+                  </li>
+                  <li class="nav-item">
+                        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+                  </li>
+                  {{else}}
+                  <li class="nav-item">
+                        <p>[ logged in as <strong><a class="username" href="/postItem">{{user.username}}</a></strong>]</p>
+                  </li>
+                  <li class="nav-item">
+                        <p>[ <a href="/logout">log out</a>]</p>
+                  </li>
+                  {{/if}}
+            </ul>
+      </nav>
+
+</header>
+<div class="container">
+      <div class="col-sm-12 col-sm-offset-3">
+            <section class="body">
+                  <form id="postingForm" action="upload">
+                        {{!-- api/createpostInfo --}}
+                        <div class="new-form" id="new-edit">
+                              <link type="text/css" rel="stylesheet" media="all" href="//www.craigslist.org/styles/JSONForm.css?v=6bb7678de82b3f8bed79728cb8732c0a">
+                              <link type="text/css" rel="stylesheet" media="all" href="//www.craigslist.org/styles/posting-process-edit.css?v=79b2408651780363385208f0cc2099f0">
+                              <div class="json-form">
+                                    <fieldset class="json-form-group-container posting-attributes">
+                                          <legend>posting details</legend>
+                                          <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                      <label>posting title</label>
+                                                      <input id="postTitle" type="text" class="form-control is-valid"
+                                                            name="titleNam" required>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                      <label>posting price</label>
+                                                      <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                  <span class="input-group-text">$</span>
+                                                            </div>
+                                                            <input id="postPrice" type="text" class="form-control is-valid"
+                                                                  name="priceNam" value="" aria-label="Amount (to the nearest dollar)">
+                                                            <div class="input-group-append">
+                                                                  <span class="input-group-text">.00</span>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                      <label>condition</label>
+                                                      <div class="col-auto my-1">
+                                                            <select id="condition" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                  <option name="conditionOpt" selected>new</option>
+                                                                  <option name="conditionOpt" value="90% new">90% new</option>
+                                                                  <option name="conditionOpt" value="70% new">70% new</option>
+                                                                  <option name="conditionOpt" value="50% new">50% new</option>
+                                                                  <option name="conditionOpt" value="old">old</option>
+                                                            </select>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </fieldset>
+                                    <fieldset class="json-form-group-container contact-info">
+                                          <legend>contact info</legend>
+                                          <div class="form-row">
+                                                <div class="col-md-3 mb-3">
+                                                      <label>contact name</label>
+                                                      <input id="contactNam" type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                      <label>email</label>
+                                                      <input id="email" type="text" class="form-control" placeholder="jason@gmail.com">
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                      <label>phone number</label>
+                                                      <input id="phoneNum" type="text" class="form-control is-valid"
+                                                            placeholder="425-623-2231" required>
+                                                      {{!-- <div class="invalid-feedback">
+                                                            Please provide a valid zip.
+                                                      </div> --}}
+                                                </div>
+                                          </div>
+                                          <div class="form-row">
+                                                <div class="col-md-3 mb-3">
+                                                      <label>contact medium</label>
+                                                      <input id="contactMedium" type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                      <label>language</label>
+                                                      <div class="col-auto my-1">
+                                                            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                  <option name="laguageNam" selected>English</option>
+                                                                  <option name="laguageNam" value="Spanish">Spanish</option>
+                                                                  <option name="laguageNam" value="Chinese">Chinese</option>
+                                                                  <option name="laguageNam" value="Japanese">Japanese</option>
+                                                            </select>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </fieldset>
+                                    <fieldset class="json-form-group-container location-info">
+                                          <legend>location info</legend>
+                                          <div class="form-row">
+                                                <div class="col-md-6 mb-3">
+                                                      <label>Street</label>
+                                                      <input id="street" type="text" class="form-control is-valid"
+                                                            required>
+                                                      {{!-- <div class="valid-feedback">
+                                                            Looks good!
+                                                      </div> --}}
+                                                </div>
+                                          </div>
+                                          <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                      <label>City</label>
+                                                      <input id="cityInput" type="text" class="form-control is-valid">
+                                                      {{!-- <div class="invalid-feedback">
+                                                            Please provide a valid city.
+                                                      </div> --}}
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                      <label for="validationServer04">State</label>
+                                                      <input id="stateInput" type="text" class="form-control is-valid"
+                                                            placeholder="State" required>
+                                                      {{!-- <div class="invalid-feedback">
+                                                            Please provide a valid state.
+                                                      </div> --}}
+                                                </div>
+                                                <div class="col-md-3 mb-3">
+                                                      <label for="validationServer05">Zip</label>
+                                                      <input id="zipcode" type="text" class="form-control is-valid"
+                                                            placeholder="Zip" required>
+                                                      <div class="invalid-feedback">
+                                                            Please provide a valid zip.
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </fieldset>
+
+
+                              </div>
+                        </div>
+                        <button class="postInfoBtn" type="submit" name="go" value="Continue">continue</button>
+
+                  </form>
+            </section>
+      </div>
+</div>
+
+<script src="/js/createpost.js"></script>
+
+<script src="/js/createpostType.js"></script>

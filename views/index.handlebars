@@ -1,0 +1,89 @@
+<header class="global-header wide">
+
+  <nav class="navbar navbar-light bg-light">
+    <ul class="nav justify-content-left">
+      {{!-- <li class="nav-item">
+        <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      </li>
+      <li class="nav-item">
+        <p class="vertical-center" id="testId">seattle<span class="breadcrumb-arrow">&gt;</span></p>
+      </li> --}}
+    </ul>
+    <ul class="nav justify-content-end">
+      {{#if condition.isNotLogin}}
+      <li class="nav-item">
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <p>[ logged in as <strong><a class="username" href="/postItem">{{user.username}}</a></strong>]</p>
+      </li>
+      <li class="nav-item">
+        <p>[ <a href="/logout">log out</a>]</p>
+      </li>
+      {{/if}}
+    </ul>
+  </nav>
+
+</header>
+<div class="container" id="indexContainer">
+  <div class="container">
+    <h1><span class="fa fa-lock"></span> Baby Used Item Trading</h1>
+
+    {{!-- <p>Login or Register with:</p>
+    <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+    <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a> --}}
+
+    <p>Directly Create a Post Here:</p>
+    <a href="/createpost" class="btn btn-default"><span class="fa fa-user"></span> Create a Posting</a>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        {{!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Dropdown</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Baby Used Item</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Zipcode</a>
+        </div> --}}
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected value="title" name="searchNam">Baby Used Item</option>
+          <option value="zipcode" name="searchNam">Zipcode</option>
+        </select>
+      </div>
+      <input id="searchInput" type="text" class="form-control" placeholder="Please Input Search Here!">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary searchBtn" type="button">Search</button>
+      </div>
+    </div>
+    {{!-- <div class="col-12"> --}}
+      <div class="row" id="allpostContainer">
+        <div class="col-lg-6">
+          <div class="row" id="alertRow"></div>
+          <div class="accordion" id="allPosts">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="container" id="map">
+          </div>
+        </div>
+      </div>
+    {{!-- </div> --}}
+
+  </div>
+
+
+
+  <div class="accordion" id="searchByZipcode">
+  </div>
+</div>
+
+<script src="/js/createpost.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfZNt5cfqlgt0S6_8GL2JCUj7kAUCYXlw&callback=initMap">
+</script>
+{{!--
+https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyAfZNt5cfqlgt0S6_8GL2JCUj7kAUCYXlw
+--}}

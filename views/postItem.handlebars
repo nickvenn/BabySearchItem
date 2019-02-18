@@ -1,0 +1,50 @@
+<header class="global-header wide">
+
+  <nav class="navbar navbar-light bg-light">
+    <p>Or go <a href="/">home</a>.</p>
+    <ul class="nav justify-content-left">
+      {{!-- <li class="nav-item">
+        <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      </li>
+      <li class="nav-item">
+        <p class="vertical-center" id="testId">seattle<span class="breadcrumb-arrow">&gt;</span></p>
+      </li> --}}
+    </ul>
+    <ul class="nav justify-content-end">
+      {{#if condition.isNotLogin}}
+      <li class="nav-item">
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+      </li>
+      {{else}}
+      <li class="nav-item">
+        <p>[ logged in as <strong><a id="postItemId" value="{{user.username}}" class="username" href="/postItem">{{user.username}}</a></strong>]</p>
+      </li>
+      <li class="nav-item">
+        <p>[ <a href="/logout">log out</a>]</p>
+      </li>
+      {{/if}}
+    </ul>
+  </nav>
+
+</header>
+{{!-- <div id="postItemContainer"></div> --}}
+ <div class="accordion" id="postItemsContainer">
+    {{!-- <div class="card">
+      <div class="card-header">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#s11" aria-expanded="fase"
+          aria-controls="s11">
+          Collapsible Group Item #1
+        </button>
+      </div>
+      <div id="s11" class="collapse">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+        </div>
+      </div>
+    </div> --}}
+
+  </div>
+<script src="/js/createpost.js"></script>

@@ -1,0 +1,67 @@
+{{!-- <div class="container">
+    <div class="col-sm-12 col-sm-offset-3"> --}}
+        <header class="global-header wide">
+
+            <nav class="navbar navbar-light bg-light">
+                <ul class="nav justify-content-left">
+                    <li class="nav-item">
+                        <img src="/img/baby.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    </li>
+                    <li class="nav-item">
+                        <p class="vertical-center" id="testId">seattle<span class="breadcrumb-arrow">&gt;</span></p>
+                    </li>
+                </ul>
+                <ul class="nav justify-content-end">
+                    {{#if condition.isNotLogin}}
+                    <li class="nav-item">
+                        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <p>[ logged in as <strong><a class="username" href="/postItem">{{user.username}}</a></strong>]</p>
+                    </li>
+                    <li class="nav-item">
+                        <p>[ <a href="/logout">log out</a>]</p>
+                    </li>
+                    {{/if}}
+                </ul>
+            </nav>
+
+        </header>
+        <div class="container" id="indexContainer">
+            <div class="col-sm-12 col-sm-offset-3">
+                <section class="body">
+
+                    <p class="formnote"><b>choose the location that fits best:</b></p>
+
+                    <form id="locationForm" action="createpostType">
+                        {{!-- action="/api/createpost" method="post" --}}
+                        <ul class="selection-list">
+                            <li><label><input class="location" type="radio" name="locationNam" value="seattle">seattle</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="eastside">eastside</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="snohomish county">snohomish
+                                    county</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="kitsap /west puget">kitsap
+                                    /west puget</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="tacoma /pierce">tacoma
+                                    /pierce</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="olympia /thurston">olympia
+                                    /thurston</label></li>
+                            <li><label><input class="location" type="radio" name="locationNam" value="south king co">south
+                                    king co</label></li>
+                        </ul>
+                        <button class="locationBtn" type="submit" name="go" value="Continue">continue</button>
+                    </form>
+
+
+                </section>
+            </div>
+        </div>
+
+        {{!--
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        --}}
+        <script src="/js/createpost.js"></script>
